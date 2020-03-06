@@ -1,13 +1,14 @@
 // generate random password function
 
+var passwordDivisor = 0;
+var lowercase = "abcdefghijklmnopqrstuvwxyz";
+var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var special = "!@#$%^&*()_+";
+var numbers = "1234567890";
+var password = "";
+
 function generate() {
   // password values
-  var lowercase = "abcdefghijklmnopqrstuvwxyz";
-  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var special = "!@#$%^&*()_+";
-  var numbers = "1234567890";
-  var password = "";
-
   // prompt user for requirements
   // length prompted to enter length between 8 and 128 characters
   // if the user does not satisfy the requirements, the page reloads
@@ -23,14 +24,15 @@ function generate() {
   var lowercaseAnswer = confirm("Should the password contain lowercase letters? OK is yes, Cancel is no.");
   if (lowercaseAnswer) {
     for (var i = 1; i <= length; i++) {
-      // charAt will not work because value confirm is a boolean
       password += lowercase.charAt(Math.floor(Math.random() * Math.floor(lowercase.length - 1)));
       console.log("character", password)
     }
+    passwordDivisor++
     console.log("Include lowercase");
   }
   else {
     console.log("Do not include lowercase");
+    console.log("PDworking", passwordDivisor)
   }
   // uppercase y/n
 
@@ -38,10 +40,11 @@ function generate() {
   if (uppercaseAnswer) {
     for (var i = 1; i <= length; i++) {
       password += uppercase.charAt(Math.floor(Math.random() * Math.floor(uppercase.length - 1)));
+      console.log("PDworking", passwordDivisor)
       console.log("character", password)
     }
+    passwordDivisor++
     console.log("Include uppercase", password);
-    
   }
   else {
     console.log("Do not include uppercase");
@@ -53,9 +56,10 @@ function generate() {
     for (var i = 1; i <= length; i++) {
       password += special.charAt(Math.floor(Math.random() * Math.floor(special.length - 1)));
       console.log("character", password)
+      console.log("PDworking", passwordDivisor)
     }
+    passwordDivisor++
     console.log("Include special characters");
-    // var special =()
   }
   else {
     console.log("Do not include special characters");
@@ -67,20 +71,29 @@ function generate() {
     for (var i = 1; i <= length; i++) {
       password += numbers.charAt(Math.floor(Math.random() * Math.floor(numbers.length - 1)));
       console.log("character", password)
+      console.log("PDworking", passwordDivisor)
     }
+    passwordDivisor++
     console.log("Include numbers");
-    
+
   }
   else {
     console.log("Do not include numbers");
   }
-  
-  if (password!==0) {
-    Array.from("password");
-    password.split("").join();
+
+  if (password != length) {
+    Array.from('password');
+    console.log(Array.from(password));
+    console.log(password.split("").join(0));
     console.log("Password_Length", password);
   }
-  
+
+  else {
+    alert("Of all the idiots in all the idiot villages of all the idiot worlds, you stand alone, my friend. - Michael Scott")
+    location.reload(true);
+    generate()
+  }
+
   // add password to text box
   document.getElementById("password").value = password;
 }
