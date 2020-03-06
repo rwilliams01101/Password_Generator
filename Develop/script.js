@@ -102,9 +102,15 @@ function generate() {
   if ((password.length) !== length) {
   // I am certain there is a way to send this back to a loop to pick up the needed characters but haven't found the answer.
   // below is a band-aid that works up to a point, and then, well, doesn't.
-     password = (password + "2")
+    //  password = (password + "2")
+
+    // here is another feature that will need to be added. This splits the array which would allow for a "shuffle" function
+    // to change the order of everything.
+    console.log(password.split(""));
+    // shuffle function here
+    // join function here
   }
-  // if no parameters are assigned by prompts, process will start over 
+  // if no parameters are assigned by prompts, process will start over (see warning at top of this page).
   if (pswdElements == 0) {
     alert("Of all the idiots in all the idiot villages of all the idiot worlds, you stand alone, my friend. - Michael Scott")
     location.reload(true);
