@@ -100,9 +100,9 @@ function generate() {
   // Checks 
   // console.log("Length is", password.length);
   if ((password.length) !== length) {
-  // I am certain there is a way to send this back to a loop to pick up the needed characters but haven't found the answer.
-  // below is a band-aid that works up to a point, and then, well, doesn't.
-    //  password = (password + "2")
+    // I am certain there is a way to send this back to a loop to pick up the needed characters but haven't found the answer.
+    // below is a band-aid that works up to a point, and then, well, doesn't.
+    password = (password + "2")
 
     // here is another feature that will need to be added. This splits the array which would allow for a "shuffle" function
     // to change the order of everything.
